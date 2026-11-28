@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ONDA STREET | Admin</title>
+<link id="fav" rel="icon" type="image/png" href="/assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Noto+Sans+Thai:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<a class="backlink" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>หน้าร้าน</a>
+
+<!-- sign in -->
+<main id="loginv" class="loginv">
+  <img class="logo" src="/assets/logo.png" alt="ONDA STREET">
+  <form id="lform" autocomplete="off" novalidate>
+    <h1>Admin</h1>
+    <label class="fld"><span>User</span><input class="in" id="lu" type="text" autocomplete="username" autocapitalize="off" spellcheck="false"></label>
+    <label class="fld"><span>Password</span><input class="in" id="lp" type="password" autocomplete="current-password"></label>
+    <p class="err" id="lerr" role="alert"></p>
+    <button class="btn wide" id="lbtn" type="submit">เข้าสู่ระบบ</button>
+  </form>
+</main>
+
+<!-- admin app -->
+<main id="admin" class="adminv" hidden>
+  <header class="ahead"><p class="scat">ADMIN</p><h1>จัดการเว็บไซต์</h1></header>
+  <p class="err" id="astatus" role="status"></p>
+  <nav class="tabs" id="tabs" aria-label="Admin sections">
+    <button class="tab on" type="button" data-t="products">สินค้า</button>
+    <button class="tab" type="button" data-t="cats">หมวดหมู่</button>
+    <button class="tab" type="button" data-t="colors">สี</button>
+    <button class="tab" type="button" data-t="music">เพลง</button>
+    <button class="tab" type="button" data-t="site">ข้อมูลร้าน</button>
+    <button class="tab" type="button" data-t="backup">สำรอง / คืนค่า</button>
+  </nav>
+
+  <section class="pane" id="pane-products">
+    <ul class="alist" id="alist"></ul>
+    <p class="ah" id="ftitle">เพิ่มสินค้าใหม่</p>
+    <form id="pform" novalidate>
+      <label class="fld"><span>ชื่อสินค้า</span><input class="in" id="fn" type="text"></label>
+      <label class="fld"><span>แบรนด์</span><input class="in" id="fb" type="text"></label>
+      <label class="fld"><span>หมวดหมู่</span><select class="in" id="fc"></select></label>
+      <div class="fld"><span>ราคา (เพิ่มได้หลายตัวเลือก)</span><div id="fopts"></div><button class="btn ghost sm" id="faddopt" type="button">+ เพิ่มราคา</button></div>
+      <div class="fld"><span>รูปภาพ (ปรับให้พอดีกรอบ 1059 × 1059)</span>
+        <label class="btn ghost sm">เลือกรูป<input id="ff" type="file" accept="image/*" multiple hidden></label>
+        <div class="thumbs" id="fthumbs"></div></div>
+      <p class="err" id="ferr" role="status"></p>
+      <div class="frow"><button class="btn" id="fsave" type="submit">เพิ่มสินค้า</button><button class="btn ghost" id="fcancel" type="button" hidden>ยกเลิก</button></div>
+    </form>
+  </section>
+
+  <section class="pane" id="pane-cats" hidden>
+    <ul class="alist" id="clist"></ul>
+    <p class="ah">เพิ่มหมวดหมู่</p>
+    <div class="addrow"><input class="in" id="cnew" type="text" placeholder="ชื่อหมวดหมู่ เช่น Jacket"><button class="btn sm" id="cadd" type="button">เพิ่ม</button></div>
+    <p class="err" id="cerr" role="status"></p>
+  </section>
+
+  <section class="pane" id="pane-colors" hidden>
+    <div class="cgrid2">
+      <div class="fld"><span>สีพื้นหลัง</span><div class="cpick"><input type="color" id="cbg"><input class="in" id="cbgt" type="text" maxlength="7" spellcheck="false"></div></div>
+      <div class="fld"><span>สีตัวอักษรและปุ่ม</span><div class="cpick"><input type="color" id="cink"><input class="in" id="cinkt" type="text" maxlength="7" spellcheck="false"></div></div>
+    </div>
+    <p class="ah">ชุดสีสำเร็จรูป</p>
+    <div class="presets" id="presets"></div>
+  </section>
+
+  <section class="pane" id="pane-music" hidden>
+    <label class="chk"><input type="checkbox" id="mon"><span>เปิดเพลงในเว็บ</span></label>
+    <p class="note" id="mname"></p>
+    <div class="frow"><label class="btn ghost sm">อัปโหลดเพลงใหม่ (ไม่เกิน 4 MB)<input id="mfile" type="file" accept="audio/*" hidden></label><button class="btn ghost sm" id="mdel" type="button">ลบเพลง</button></div>
+    <label class="fld" style="margin-top:20px"><span>ระดับเสียงเริ่มต้น</span><input class="range" id="mvol" type="range" min="0" max="100"></label>
+    <p class="err" id="merr" role="status"></p>
+  </section>
+
+  <section class="pane" id="pane-site" hidden>
+    <label class="fld"><span>ข้อความใต้โลโก้</span><input class="in" id="s-tag" type="text"></label>
+    <label class="fld"><span>ลิงก์ Instagram (ขึ้นต้นด้วย https://)</span><input class="in" id="s-ig" type="text" spellcheck="false"></label>
+    <label class="fld"><span>ข้อความที่แสดงบนปุ่ม Instagram</span><input class="in" id="s-igl" type="text" spellcheck="false"></label>
+
+    <p class="ah">ตอนแชร์ลิงก์เว็บ</p>
+    <label class="fld"><span>ชื่อเว็บ (แสดงบนแท็บและตอนแชร์ลิงก์)</span><input class="in" id="s-title" type="text"></label>
+    <label class="fld"><span>คำอธิบายสั้นๆ ตอนแชร์ลิงก์</span><input class="in" id="s-desc" type="text"></label>
+
+    <div class="fld"><span>ไอคอนเว็บ (โลโก้บนแท็บเบราว์เซอร์ / เมื่อแชร์ลิงก์)</span>
+      <div class="iconrow">
+        <img class="icoprev" id="icoPrev" alt="" width="72" height="72">
+        <div class="iconctl">
+          <label class="btn ghost sm">เลือกรูปไอคอน<input id="ifile" type="file" accept="image/*" hidden></label>
+          <label class="cpick2"><span>สีพื้นหลังไอคอน</span><input type="color" id="icoBg" value="#000000"></label>
+          <button class="btn ghost sm" id="ireset" type="button">ใช้ค่าเริ่มต้น</button>
+        </div>
+      </div>
+      <p class="note">ระบบวางรูปไว้กลางกรอบสี่เหลี่ยมจัตุรัส 512 × 512 ให้เอง เลือกสีพื้นหลังก่อนแล้วค่อยเลือกรูป</p>
+    </div>
+
+    <div class="fld"><span>แบนเนอร์ตอนแชร์ลิงก์ (รูปที่เด้งขึ้นใน LINE / Facebook)</span>
+      <img class="banprev" id="banPrev" alt="" width="600" height="315">
+      <div class="frow"><label class="btn ghost sm">เลือกรูปแบนเนอร์<input id="bfile" type="file" accept="image/*" hidden></label>
+      <button class="btn ghost sm" id="breset" type="button">ใช้ค่าเริ่มต้น</button></div>
+      <p class="note">ครอปให้เป็นสัดส่วน 1200 × 630 อัตโนมัติ (จากกลางภาพ) บางแอปจำรูปตัวอย่างไว้ ถ้าเปลี่ยนแล้วยังไม่เปลี่ยนให้ลองรอสักพักหรือล้างแคชของแอปนั้น</p>
+      <p class="err" id="serr" role="status"></p>
+    </div>
+  </section>
+
+  <section class="pane" id="pane-backup" hidden>
+    <p class="ah first">ประวัติการบันทึก (ย้อนกลับได้ 8 ครั้งล่าสุด)</p>
+    <ul class="alist" id="hlist"></ul>
+    <p class="ah">เครื่องมืออื่น</p>
+    <div class="frow">
+      <button class="btn ghost sm" id="bfactory" type="button">รีเซ็ตเป็นค่าเริ่มต้นของร้าน</button>
+      <button class="btn ghost sm" id="bdl" type="button">ดาวน์โหลดไฟล์สำรอง (.json)</button>
+      <label class="btn ghost sm">นำเข้าไฟล์สำรอง<input id="bimp" type="file" accept="application/json,.json" hidden></label>
+      <button class="btn ghost sm" id="blogout" type="button">ออกจากระบบ</button>
+    </div>
+  </section>
+</main>
+
+<div class="asave" id="asave" hidden>
+  <span class="dirty" id="dirty" hidden>มีการแก้ไขที่ยังไม่ได้บันทึก</span>
+  <span class="clean" id="clean">ไม่มีการแก้ไข</span>
+  <button class="btn ghost sm" id="discard" type="button">ยกเลิกการแก้ไข</button>
+  <button class="btn sm" id="publish" type="button">บันทึกและเผยแพร่</button>
+</div>
+
+<script src="/admin.js"></script>
+</body>
+</html>

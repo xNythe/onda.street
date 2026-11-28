@@ -1,0 +1,11 @@
+{
+  "name": "onda-street",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ONDA STREET shop with an admin page (Vercel + Vercel Blob)",
+  "dependencies": {
+    "@vercel/blob": "latest"
+  },
+  "engines": { "node": ">=20" }
+}
