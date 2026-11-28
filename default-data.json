@@ -1,0 +1,82 @@
+{
+  "theme": {
+    "bg": "#000000",
+    "ink": "#ffffff"
+  },
+  "music": {
+    "src": "/assets/music.mp3",
+    "name": "Che - MANNEQUIN feat. Xaviersobased",
+    "on": true,
+    "vol": 60
+  },
+  "site": {
+    "tagline": "Clothing & Accessories",
+    "ig": "https://www.instagram.com/_.onda.st/",
+    "igLabel": "@_.onda.st",
+    "title": "ONDA STREET",
+    "desc": "Streetwear clothing and accessories.",
+    "icon": "/assets/icon-512.png",
+    "banner": "/assets/og-banner.jpg"
+  },
+  "categories": [
+    {
+      "slug": "tshirt",
+      "label": "T-Shirt"
+    },
+    {
+      "slug": "polo",
+      "label": "Polo"
+    },
+    {
+      "slug": "hoodie",
+      "label": "Hoodie"
+    },
+    {
+      "slug": "sweater",
+      "label": "Sweater"
+    },
+    {
+      "slug": "pants",
+      "label": "Pants"
+    },
+    {
+      "slug": "jeans",
+      "label": "Jeans"
+    },
+    {
+      "slug": "shorts",
+      "label": "Shorts"
+    },
+    {
+      "slug": "set",
+      "label": "Set"
+    },
+    {
+      "slug": "accessories",
+      "label": "Accessories"
+    }
+  ],
+  "products": [
+    {
+      "id": "sp5der",
+      "cat": "hoodie",
+      "name": "SP5DER Hoodie",
+      "brand": "SP5DER",
+      "options": [
+        {
+          "label": "Option 1",
+          "price": 12500
+        },
+        {
+          "label": "Option 2",
+          "price": null
+        }
+      ],
+      "imgs": [
+        "/assets/hoodie-black.webp",
+        "/assets/hoodie-blue.webp",
+        "/assets/hoodie-red.webp"
+      ]
+    }
+  ]
+}

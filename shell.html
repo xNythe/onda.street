@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--META-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Noto+Sans+Thai:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<button class="gate" id="gate" type="button" aria-label="Enter ONDA STREET">
+  <img class="rv" style="--d:.45s" id="logo3" alt="ONDA STREET">
+  <span class="tag rv" id="gtag" style="--d:.8s"></span>
+  <span class="enter rv" style="--d:1.1s">Tap to enter</span>
+</button>
+
+<div class="music" id="music" role="group" aria-label="Music controls" hidden>
+  <button class="mbtn" id="toggle" aria-label="Play music" aria-pressed="false">
+    <svg class="play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </button>
+  <input class="vol" id="vol" type="range" min="0" max="100" value="60" aria-label="Volume">
+</div>
+
+<main id="home" class="view">
+  <img class="logo" id="logo" alt="ONDA STREET" src="/assets/logo.png">
+  <p class="sub" id="hsub"></p>
+  <a class="cta" id="shop" href="#categories">Shop Now</a>
+  <a class="ig" href="#" target="_blank" rel="noopener noreferrer" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span></span></a>
+</main>
+
+<a class="back" id="back" href="#" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back
+</a>
+
+<main id="categories" class="view cats" hidden>
+  <img class="logo sm" id="logo2" alt="ONDA STREET">
+  <h1>Choose a category</h1>
+  <ul class="grid" id="ctiles"></ul>
+  <a class="ig" href="#" target="_blank" rel="noopener noreferrer" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span></span></a>
+</main>
+
+<main id="catv" class="view catv" hidden>
+  <span class="eyebrow">Category</span>
+  <h1 id="ctitle"></h1>
+  <ul class="pg" id="cgrid"></ul>
+  <a class="ig" href="#" target="_blank" rel="noopener noreferrer" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span></span></a>
+</main>
+
+<div class="ticker" id="ticker" aria-hidden="true" hidden><div><span>ONDA STREET</span><span>CLOTHING</span><span>ACCESSORIES</span><span>ONDA STREET</span><span>CLOTHING</span><span>ACCESSORIES</span><span>ONDA STREET</span><span>CLOTHING</span><span>ACCESSORIES</span><span>ONDA STREET</span><span>CLOTHING</span><span>ACCESSORIES</span></div></div>
+
+<a class="gear" id="gear" href="/admin" hidden aria-label="Admin">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+</a>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-bg" data-close></div>
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sname">
+    <button class="sheet-x" id="sx" type="button" data-close aria-label="ปิด">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="slider sheet-slider" id="sslider"></div>
+    <p class="scat" id="scat"></p>
+    <h2 id="sname"></h2>
+    <p class="sheet-h">รายละเอียด</p>
+    <dl class="spec" id="sbody"></dl>
+  </div>
+</div>
+
+<!--DATA-->
+<script src="/shop.js"></script>
+</body>
+</html>
